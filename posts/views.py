@@ -9,13 +9,13 @@ def post_list_and_create(request):
 
 def load_post_data_view(request):
     qs = Post.objects.all()
-    data =[]
+    data = []
     for obj in qs:
         item = {
             'id': obj.id,
             'title': obj.title,
             'body': obj.body,
-            'author':obj.author.user.username
+            'author': obj.author.user.username
         }
         data.append(item)
     return JsonResponse({'data':data})
